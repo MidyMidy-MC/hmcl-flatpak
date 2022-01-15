@@ -1,0 +1,7 @@
+include:
+  - https://gitlab.com/accessable-net/gitlab-ci-templates/raw/master/flatpak.yml
+
+variables:
+  APP_ID: org.jackhuang.hmcl
+  FLATPAK_MODULE: HMCL
+  RUNTIME_VRESION: "21.08"
