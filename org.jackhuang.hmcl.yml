@@ -31,9 +31,9 @@ modules:
       - --with-audio=alsa
       - --with-vox=cmu_us_kal16
     cleanup:
-      - "*.a"
-      - "/include"
-      - "/share"
+      - '*.a'
+      - /include
+      - /share
     sources:
       - type: git
         url: https://github.com/festvox/flite.git
@@ -41,7 +41,7 @@ modules:
         commit: e9e2e37c329dbe98bfeb27a1828ef9a71fa84f88
         x-checker-data:
           type: git
-          tag-pattern: "^v([\\d.]+)$"
+          tag-pattern: ^v([\d.]+)$
 
   - name: xrandr
     sources:
@@ -54,11 +54,9 @@ modules:
     build-commands:
       - mkdir -p /app/jdk-8
       - ln -s jdk-8/jvm/java-8-openjdk /app/jre-8
-      - . /usr/lib/sdk/openjdk17/enable.sh && 
-        jlink --strip-debug --no-header-files --no-man-pages --compress=1  
-          --module-path $JAVA_HOME/jmods:. 
-          --add-modules ALL-MODULE-PATH --output 
-          /app/jre
+      - . /usr/lib/sdk/openjdk17/enable.sh && jlink --strip-debug --no-header-files
+        --no-man-pages --compress=1 --module-path $JAVA_HOME/jmods:. --add-modules
+        ALL-MODULE-PATH --output /app/jre
     sources:
       - type: archive
         only-arches: [x86_64]
@@ -81,14 +79,15 @@ modules:
       - install -Dm644 HMCL.appdata.xml -t /app/share/metainfo
     sources:
       - type: file
-        dest-filename: HMCL.jar 
-        url: http://ci.huangyuhui.net/job/HMCL/209/artifact/HMCL/build/libs/HMCL-3.4.209.jar
-        sha256: 97aeedb1a4a3ba78ede7423122eca185179df4a85f529e419f7d9c619bf2e1fc
-        x-checker-data: 
+        dest-filename: HMCL.jar
+        url: https://ci.huangyuhui.net/job/HMCL/216/artifact/HMCL/build/libs/HMCL-3.5.2.216.jar
+        sha256: 7f2840476c8cbbc55a7dd2eb87e830672e3c375c67cfd92206c87dca5cb9ebe0
+        x-checker-data:
           type: json
-          url: 'https://ci.huangyuhui.net/job/HMCL/lastSuccessfulBuild/api/json?pretty=true'
+          url: https://ci.huangyuhui.net/job/HMCL/lastSuccessfulBuild/api/json?pretty=true
           version-query: .artifacts[0].fileName | gsub("^HMCL-|.exe"; "")
-          url-query: .url + "artifact/" + (.artifacts[] | select(.fileName=="HMCL-" + $version + ".jar") | .relativePath)
+          url-query: .url + "artifact/" + (.artifacts[] | select(.fileName=="HMCL-"
+            + $version + ".jar") | .relativePath)
 
       - type: file
         path: HMCL.desktop
@@ -103,5 +102,6 @@ modules:
         dest-filename: HMCL.sh
         commands:
           - mkdir -p $XDG_DATA_HOME/HMCL
-          - cd $XDG_DATA_HOME/HMCL || (echo "Can't open $XDG_DATA_HOME/HMCL" && exit 1)
+          - cd $XDG_DATA_HOME/HMCL || (echo "Can't open $XDG_DATA_HOME/HMCL" && exit
+            1)
           - exec java -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=15 -jar /app/HMCL/HMCL.jar
