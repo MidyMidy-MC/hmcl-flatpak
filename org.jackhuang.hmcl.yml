@@ -80,8 +80,8 @@ modules:
     sources:
       - type: file
         dest-filename: HMCL.jar
-        url: https://ci.huangyuhui.net/job/HMCL/235/artifact/HMCL/build/libs/HMCL-3.5.5.235.jar
-        sha256: 86946bbb52194786f37b3ea25a50baaa8edefed0ab78cdef22b213ded16a1702
+        url: https://ci.huangyuhui.net/job/HMCL/236/artifact/HMCL/build/libs/HMCL-3.5.5.236.jar
+        sha256: f11a7f9f9eaf49349ca4a11ea268f63eb0ef319a1ccf5e582ba9981f2c2a59c1
         x-checker-data:
           type: json
           url: https://ci.huangyuhui.net/job/HMCL/lastSuccessfulBuild/api/json?pretty=true
