@@ -5,5 +5,5 @@ Flatpak of [HMCL](https://github.com/huanghongxun/HMCL), a Minecraft launcher wh
 ## How to install
 
 ````bash
-flatpak install --user https://gitlab.com/accessable-net/hmcl-flatpak/raw/master/hmcl.flatpakref
+flatpak install --user https://github.com/MidyMidy-MC/hmcl-flatpak/raw/refs/heads/main/hmcl.flatpakref
 ````
