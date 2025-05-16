@@ -1,6 +1,6 @@
 id: org.jackhuang.hmcl
 runtime: org.freedesktop.Platform
-runtime-version: '21.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
@@ -13,6 +13,7 @@ finish-args:
   - --share=network
   - --share=ipc
   - --socket=x11
+  - --socket=wayland
   - --socket=pulseaudio
   - --device=dri
   - --persist=.minecraft
@@ -20,7 +21,7 @@ finish-args:
 
 add-extensions:
   org.freedesktop.Sdk.Extension.openjdk8:
-    version: '21.08'
+    version: '24.08'
     directory: jdk-8 # this is relative to /app
     no-autodownload: true
 
@@ -80,8 +81,8 @@ modules:
     sources:
       - type: file
         dest-filename: HMCL.jar
-        url: https://ci.huangyuhui.net/job/HMCL/244/artifact/HMCL/build/libs/HMCL-3.5.7.244.jar
-        sha256: 40269748b7fd5a99b7d52b371ca31ad914b2981185c59dbf2fed028d5b2e00c0
+        url: https://ci.huangyuhui.net/job/HMCL-stable/lastSuccessfulBuild/artifact/HMCL/build/libs/HMCL-3.6.12.jar
+        sha256: a1fac6ec255920e0c9a0713aa3047d3fbbe20650a16a6605e4f12915e78e1f81
         x-checker-data:
           type: json
           url: https://ci.huangyuhui.net/job/HMCL/lastSuccessfulBuild/api/json?pretty=true
